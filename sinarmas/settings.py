@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'blog',
     'testimoni',
     'kategori_barang',
+    'kategori_artikel',
+
 ]
 
 MIDDLEWARE = [

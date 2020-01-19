@@ -6,6 +6,7 @@ class artikel(models.Model):
     isi = models.TextField(max_length=1000)
     tanggal = models.DateTimeField(auto_now_add=True,blank=True,null=True)
     slug = models.SlugField(editable=False,blank=True,null=True)
+    gambar = models.ImageField(upload_to='images/',null=True)
 
     def save(self):
         self.slug = slugify(self.judul)

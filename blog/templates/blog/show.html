@@ -1,0 +1,48 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+<!-- Page info -->
+<div class="page-top-info">
+    <div class="container">
+        <h4>Detail Artikel</h4>
+    </div>
+</div>
+<!-- Page info end -->
+
+
+<!-- checkout section  -->
+<section class="checkout-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 order-1 order-lg-1">
+                <div class="checkout-cart">
+                    <img src="{{detail_artikel.gambar.url}}" alt="">
+                    <br>
+                    <h3>{{detail_artikel.judul}}</h3>
+                    <p>{{detail_artikel.isi}}</p>
+                    <button class="site-btn sb-line sb-dark" onclick="history.go(-1)">Kembali</button>
+                </div>
+                
+            </div>
+            <br>
+            <div class="col-lg-4 order-2 order-lg-2">
+                <div class="checkout-cart">
+                    <h3 style="margin-bottom:10px;">Artikel Lain</h3>
+                    <ul class="product-list">
+                        <ul class="product-list">
+                            {% for row in artikel_lain %}
+                            <li>
+                                <div class="pl-thumb"><img src="{{row.gambar.url}}" alt=""></div>
+                                <h6>{{row.judul}}</h6>
+                                <p>{{row.isi}} <a href="#">Lanjut Baca</a></p>
+                                <p>{{row.tanggal}}</p>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

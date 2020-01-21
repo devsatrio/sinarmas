@@ -22,7 +22,7 @@
                         <li>
                             <div class="pl-thumb"><img src="{{row.gambar.url}}" alt=""></div>
                             <h6>{{row.judul}}</h6>
-                            <p>{{row.isi}} <a href="{% url 'blog:show' row.slug %}">Lanjut Baca</a></p>
+                            <p>{{row.isi|slice:"0:200"}} <a href="{% url 'blog:show' row.slug %}">Lanjut Baca</a></p>
                             <p>{{row.tanggal}}</p>
                         </li>
                         {% endfor %}

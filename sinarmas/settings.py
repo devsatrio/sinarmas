@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_cleanup.apps.CleanupConfig',
     'blog',
+    'produk',
     'testimoni',
     'kategori_barang',
     'kategori_artikel',

@@ -1,0 +1,57 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+<!-- Page info -->
+<div class="page-top-info">
+    <div class="container">
+        <h4>Testimoni</h4>
+    </div>
+</div>
+<!-- Page info end -->
+
+
+<!-- Contact section -->
+<section class="contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 contact-info">
+                <h3>Kami Disini</h3>
+                <p>jln, penuh liku nomor 20 rt 01 rw 01</p>
+                <p>+546 990221 123(Ganyitno)</p>
+                <p>sinarmas@contact.com</p>
+                <div class="contact-social">
+                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-behance"></i></a>
+                </div>
+                <h3>Nilai Kami Dong</h3>
+                <form class="contact-form" action="{% url 'testimoni:index' %}" method="POST">
+                    {% if messages %}
+                    <div class="row">
+                        <div class="col-sm-12 col-sm-offset-3">
+                            {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                <p>{{ message }}</p>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% csrf_token %}
+                    {{testi_moniform}}
+                    <button type="submit" class="site-btn">Kirim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="map"><iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14376.077865872314!2d-73.879277264103!3d40.757667781624285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1546528920522"
+            style="border:0" allowfullscreen></iframe></div>
+    <br><br><br>
+</section>
+{% endblock content %}

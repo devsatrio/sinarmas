@@ -1,0 +1,57 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+<!-- Page info -->
+<div class="page-top-info">
+    <div class="container">
+        <h4>Artikel</h4>
+    </div>
+</div>
+<!-- Page info end -->
+
+
+<!-- checkout section  -->
+<section class="checkout-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 order-1 order-lg-1">
+                <div class="checkout-cart">
+                    <h3>Kategori : {{detail_kategori.nama_kategori}}</h3>
+                    <ul class="product-list">
+                        {% for row in artikel %}
+                        <li>
+                            <div class="pl-thumb"><img src="{{row.gambar.url}}" alt=""></div>
+                            <h6>{{row.judul}}</h6>
+                            <p>{{row.isi}} <a href="{% url 'blog:show' row.slug %}">Lanjut Baca</a></p>
+                            <p>{{row.tanggal}}</p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% if artikel.paginator.num_pages > 1 %}
+
+                    <!-- start -->
+                    {% include 'layout/_pagination.html' with items=artikel %}
+                    <!-- end -->
+
+                    {% endif %}
+                </div>
+
+            </div>
+            <br>
+            <div class="col-lg-4 order-2 order-lg-2">
+                <div class="checkout-cart">
+                    <h3 style="margin-bottom:10px;">Kategori</h3>
+                    <ul class="product-list">
+                        <li>
+                            <a href="{% url 'blog:index' %}">Semua Kategori</a><br>
+                            {% for row in kategori %}
+                            <a href="{% url 'blog:categori' row.id %}">{{row.nama_kategori}}</a><br>
+                            {% endfor %}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

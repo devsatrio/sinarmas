@@ -13,7 +13,7 @@ class PostAdmin(ImportExportModelAdmin):
     resource_class = BlogResource
     readonly_fields = ['slug','tanggal']
     list_display = ['judul','isi','tanggal','gambar','kategori']
-    list_filter = ['tanggal']
+    list_filter = ['tanggal','kategori']
     
     
 admin.site.register(artikel,PostAdmin)

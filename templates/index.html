@@ -1,6 +1,7 @@
 
 {% extends 'layout/base.html' %}
 {% load static %}
+{% load humanize %}
 {% block content %}
 <!-- Hero section -->
 <section class="hero-section">
@@ -9,13 +10,12 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xl-6 col-lg-7 text-white">
-						<span>New Arrivals</span>
+						<span>Produk Hot</span>
 						<h2>denim jackets</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 							labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo
 							viverra maecenas accumsan lacus vel facilisis. </p>
-						<a href="#" class="site-btn sb-line">DISCOVER</a>
-						<a href="#" class="site-btn sb-white">ADD TO CART</a>
+						<a href="#" class="site-btn sb-white">Belanja Hayuk</a>
 					</div>
 				</div>
 				<div class="offer-card text-white">
@@ -29,13 +29,12 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xl-6 col-lg-7 text-white">
-						<span>New Arrivals</span>
+						<span>Produk Hot</span>
 						<h2>denim jackets</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 							labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo
 							viverra maecenas accumsan lacus vel facilisis. </p>
-						<a href="#" class="site-btn sb-line">DISCOVER</a>
-						<a href="#" class="site-btn sb-white">ADD TO CART</a>
+						<a href="#" class="site-btn sb-white">Belanja Hayuk</a>
 					</div>
 				</div>
 				<div class="offer-card text-white">
@@ -92,227 +91,27 @@
 <section class="top-letest-product-section">
 	<div class="container">
 		<div class="section-title">
-			<h2>LATEST PRODUCTS</h2>
+			<h2>Produk Terbaru</h2>
 		</div>
 		<div class="product-slider owl-carousel">
+			{% for row in produk %}
 			<div class="product-item">
 				<div class="pi-pic">
-					<img src="{% static 'assets/img/product/1.jpg'%}" alt="">
+					<img src="{{row.gambar.url}}" alt="">
 					<div class="pi-links">
-						<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-						<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+						<a href="{% url 'produk:show' row.slug %}" class="add-card"><i class="flaticon-bag"></i><span>Detail Item</span></a>
 					</div>
 				</div>
 				<div class="pi-text">
-					<h6>$35,00</h6>
-					<p>Flamboyant Pink Top </p>
+					<h6>Rp. {{row.harga|intcomma}}</h6>
+					<p>{{row.nama_produk}}</p>
 				</div>
 			</div>
-			<div class="product-item">
-				<div class="pi-pic">
-					<div class="tag-new">New</div>
-					<img src="{% static 'assets/img/product/1.jpg'%}" alt="">
-					<div class="pi-links">
-						<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-						<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-					</div>
-				</div>
-				<div class="pi-text">
-					<h6>$35,00</h6>
-					<p>Black and White Stripes Dress</p>
-				</div>
-			</div>
-			<div class="product-item">
-				<div class="pi-pic">
-					<img src="{% static 'assets/img/product/1.jpg'%}" alt="">
-					<div class="pi-links">
-						<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-						<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-					</div>
-				</div>
-				<div class="pi-text">
-					<h6>$35,00</h6>
-					<p>Flamboyant Pink Top </p>
-				</div>
-			</div>
-			<div class="product-item">
-				<div class="pi-pic">
-					<img src="{% static 'assets/img/product/1.jpg'%}" alt="">
-					<div class="pi-links">
-						<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-						<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-					</div>
-				</div>
-				<div class="pi-text">
-					<h6>$35,00</h6>
-					<p>Flamboyant Pink Top </p>
-				</div>
-			</div>
-			<div class="product-item">
-				<div class="pi-pic">
-					<img src="{% static 'assets/img/product/1.jpg'%}" alt="">
-					<div class="pi-links">
-						<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-						<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-					</div>
-				</div>
-				<div class="pi-text">
-					<h6>$35,00</h6>
-					<p>Flamboyant Pink Top </p>
-				</div>
-			</div>
+			{% endfor %}
 		</div>
 	</div>
 </section>
-<!-- letest product section end -->
 
-
-
-<!-- Product filter section -->
-<section class="product-filter-section">
-	<div class="container">
-		<div class="section-title">
-			<h2>BROWSE TOP SELLING PRODUCTS</h2>
-		</div>
-		<ul class="product-filter-menu">
-			<li><a href="#">TOPS</a></li>
-			<li><a href="#">JUMPSUITS</a></li>
-			<li><a href="#">LINGERIE</a></li>
-			<li><a href="#">JEANS</a></li>
-			<li><a href="#">DRESSES</a></li>
-			<li><a href="#">COATS</a></li>
-			<li><a href="#">JUMPERS</a></li>
-			<li><a href="#">LEGGINGS</a></li>
-		</ul>
-		<div class="row">
-			<div class="col-lg-3 col-sm-6">
-				<div class="product-item">
-					<div class="pi-pic">
-						<img src="{% static 'assets/img/product/1.jpg'%}" alt="">
-						<div class="pi-links">
-							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-						</div>
-					</div>
-					<div class="pi-text">
-						<h6>$35,00</h6>
-						<p>Flamboyant Pink Top </p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-sm-6">
-				<div class="product-item">
-					<div class="pi-pic">
-						<div class="tag-sale">ON SALE</div>
-						<img src="{% static 'assets/img/product/1.jpg'%}" alt="">
-						<div class="pi-links">
-							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-						</div>
-					</div>
-					<div class="pi-text">
-						<h6>$35,00</h6>
-						<p>Black and White Stripes Dress</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-sm-6">
-				<div class="product-item">
-					<div class="pi-pic">
-						<img src="{% static 'assets/img/product/1.jpg'%}" alt="">
-						<div class="pi-links">
-							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-						</div>
-					</div>
-					<div class="pi-text">
-						<h6>$35,00</h6>
-						<p>Flamboyant Pink Top </p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-sm-6">
-				<div class="product-item">
-					<div class="pi-pic">
-						<img src="{% static 'assets/img/product/1.jpg'%}" alt="">
-						<div class="pi-links">
-							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-						</div>
-					</div>
-					<div class="pi-text">
-						<h6>$35,00</h6>
-						<p>Flamboyant Pink Top </p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-sm-6">
-				<div class="product-item">
-					<div class="pi-pic">
-						<img src="{% static 'assets/img/product/1.jpg'%}" alt="">
-						<div class="pi-links">
-							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-						</div>
-					</div>
-					<div class="pi-text">
-						<h6>$35,00</h6>
-						<p>Flamboyant Pink Top </p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-sm-6">
-				<div class="product-item">
-					<div class="pi-pic">
-						<img src="{% static 'assets/img/product/1.jpg'%}" alt="">
-						<div class="pi-links">
-							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-						</div>
-					</div>
-					<div class="pi-text">
-						<h6>$35,00</h6>
-						<p>Black and White Stripes Dress</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-sm-6">
-				<div class="product-item">
-					<div class="pi-pic">
-						<img src="{% static 'assets/img/product/1.jpg'%}" alt="">
-						<div class="pi-links">
-							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-						</div>
-					</div>
-					<div class="pi-text">
-						<h6>$35,00</h6>
-						<p>Flamboyant Pink Top </p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-sm-6">
-				<div class="product-item">
-					<div class="pi-pic">
-						<img src="{% static 'assets/img/product/1.jpg'%}" alt="">
-						<div class="pi-links">
-							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-						</div>
-					</div>
-					<div class="pi-text">
-						<h6>$35,00</h6>
-						<p>Flamboyant Pink Top </p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="text-center pt-5">
-			<button class="site-btn sb-line sb-dark">LOAD MORE</button>
-		</div>
-	</div>
-</section>
-<!-- Product filter section end -->
 
 <!-- Product filter section -->
 <section class="product-filter-section">
@@ -341,31 +140,34 @@
                 </div>
             </div>
 		</div>
-
-		<div class="text-center pt-5">
-			{% if artikel.paginator.num_pages > 1 %}
-            <!-- start -->
-            	{% include 'layout/_pagination.html' with items=artikel %}
-            <!-- end -->
-            {% endif %}
-			<!-- <button class="site-btn sb-line sb-dark">LOAD MORE</button> -->
-		</div>
 	</div>
 </section>
-<!-- Product filter section end -->
-
-<!-- Banner section -->
-<section class="banner-section">
+<section class="product-filter-section">
 	<div class="container">
-		<div class="banner set-bg" data-setbg="{% static 'assets/img/banner-bg.jpg'%}">
-			<div class="tag-new">NEW</div>
-			<span>New Arrivals</span>
-			<h2>STRIPED SHIRTS</h2>
-			<a href="#" class="site-btn">SHOP NOW</a>
+		<div class="section-title">
+			<h2>Testimoni</h2>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-12 order-1 order-lg-1">
+                <div class="checkout-cart">
+					
+                    <ul class="product-list">
+                        {% for row in testimoni %}
+                        <li>
+                            <h6>{{row.nama}} ({{row.email}})</h6>
+                            <p>{{row.deskripsi}}</p>
+                            <p>{{row.tanggal_kirim}}</p>
+                        </li>
+                        {% endfor %}
+					</ul>
+					
+                    
+                </div>
+            </div>
 		</div>
 	</div>
 </section>
-<!-- Banner section end  -->
 
 
 {% endblock content %}

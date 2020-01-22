@@ -1,0 +1,59 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+<!-- Page info -->
+<div class="page-top-info">
+	<div class="container">
+		<h4>Produk</h4>
+	</div>
+</div>
+<!-- Page info end -->
+
+
+<!-- Category section -->
+<section class="product-section">
+    <div class="container">
+        <div class="back-link">
+            <a href="#" onclick="history.go(-1)"> &lt;&lt; Kembali</a>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div>
+                    <img class="product-big-img" src="{{produk.gambar.url}}" alt="" width="100%">
+                </div>
+            </div>
+            <div class="col-lg-6 product-details">
+                <h2 class="p-title">{{produk.nama_produk}}</h2>
+                <h3 class="p-price">Rp. {{produk.harga|intcomma}}</h3>
+                <h4 class="p-stock">Kategori : <span>{{produk.kategori_barang}}</span></h4>
+                <div id="accordion" class="accordion-area">
+                    <div class="panel">
+                        <div class="panel-header" id="headingOne">
+                            <button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Deskripsi Produk</button>
+                        </div>
+                        <div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="panel-body">
+                                {{produk.deskripsi}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header" id="headingTwo">
+                            <button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Cara Beli</button>
+                        </div>
+                        <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="panel-body">
+                                <img src="./img/cards.png" alt="">
+                                <p>Hubungi admin kami di 0924802348xxx kemudian tulis nama barang beserta jumlah</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Category section end -->
+{% endblock content %}

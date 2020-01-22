@@ -12,7 +12,7 @@ class BlogResource(resources.ModelResource):
 class PostAdmin(ImportExportModelAdmin):
     resource_class = BlogResource
     readonly_fields = ['slug','tanggal']
-    list_display = ['judul','isi','tanggal','gambar','kategori']
+    list_display = ['judul','tanggal','gambar','kategori']
     list_filter = ['tanggal','kategori']
     
     

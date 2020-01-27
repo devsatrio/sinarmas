@@ -6,11 +6,12 @@ from django.core.paginator import Paginator
 def index(request):
     data_kategori = kategori_artikel.objects.all()
     data_artikel = artikel.objects.all().order_by('-id')
-    paginator = Paginator(data_artikel, 8)
+    paginator = Paginator(data_artikel, 3)
     page = request.GET.get('page')
     data_artikel = paginator.get_page(page)
 
-    context = {
+    # parsing data
+    context = { 
         'kategori':data_kategori,
         'artikel':data_artikel,
     }
@@ -18,7 +19,7 @@ def index(request):
 
 def show(request,blogslug):
     detail_artikel = artikel.objects.get(slug=blogslug)
-    artikel_lain = artikel.objects.all().order_by('?')[0:5]
+    artikel_lain = artikel.objects.all().order_by('?')[0:3]
     context = {
         'detail_artikel':detail_artikel,
         'artikel_lain':artikel_lain,

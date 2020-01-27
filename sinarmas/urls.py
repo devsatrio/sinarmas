@@ -4,8 +4,6 @@ from django.urls import path,include
 from django.conf.urls.static import static
 from . import views
 
-app_name='blog'
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('produk/',include('produk.urls')),

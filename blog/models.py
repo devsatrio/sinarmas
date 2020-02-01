@@ -10,7 +10,7 @@ class artikel(models.Model):
     gambar = models.ImageField(upload_to='images/',null=True)
     kategori = models.ForeignKey(kategori_artikel,on_delete=models.SET_NULL,null=True)
 
-    def save(self):
+    def save(self): #def fungsi
         self.slug = slugify(self.judul)
         super(artikel, self).save()
 

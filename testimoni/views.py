@@ -1,6 +1,5 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
-from django.contrib import messages
 from .models import testi
 from .forms import testimoniform
 
